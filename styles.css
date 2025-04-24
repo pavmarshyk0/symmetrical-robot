@@ -1,0 +1,243 @@
+:root {
+    --transition-duration: 0.3s;
+    --main-purple: #a79ad8;
+    --code-green: #4AF626;
+    --glitch-red: #FF003C;
+  }
+  
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+  }
+  
+  .language-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .lang-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s;
+    font-size: 14px;
+  }
+  
+  .lang-btn.active {
+    background: #fff;
+    color: #000;
+  }
+  
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    transition: opacity var(--transition-duration) ease;
+  }
+  
+  .button-box {
+    margin-top: 50px;
+    border: 2px solid white;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: transparent;
+    color: white;
+    font-size: 22.5px;
+  }
+  
+  .button-box:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  .form-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    padding: 40px 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-duration) ease;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  
+  .form-section.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .form-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  
+  h1 {
+    font-size: 28px;
+    margin: 0 0 15px;
+    font-weight: 600;
+  }
+  
+  .subtitle {
+    font-size: 15px;
+    color: #86868b;
+    margin-bottom: 35px;
+  }
+  
+  .form-group {
+    margin-bottom: 25px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1d1d1f;
+    letter-spacing: -0.1px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d2d2d7;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: border-color 0.2s;
+    background: white;
+    color: #1d1d1f;
+  }
+  
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--main-purple);
+    box-shadow: 0 0 0 3px rgba(167,154,216,0.15);
+  }
+  
+  .submit-btn {
+    background-color: var(--main-purple);
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+    margin-top: 15px;
+  }
+  
+  .submit-btn:hover {
+    background-color: #8f82c0;
+  }
+  
+  #flickeryText {
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    white-space: pre-line;
+    margin: 20px 0;
+  }
+  
+  @media (max-width: 768px) {
+    .code-effect {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+    
+    .press-start {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1a;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease;
+    pointer-events: none;
+    padding: 40px;
+    box-sizing: border-box;
+  }
+  
+  .code-effect {
+    color: var(--code-green);
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-shadow: 0 0 8px rgba(74, 246, 38, 0.4);
+    white-space: pre-wrap;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .cursor {
+    animation: blink 0.8s infinite;
+    color: var(--code-green);
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+  
+  .press-start {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.5rem;
+    color: var(--glitch-red);
+    text-shadow: 0 0 15px var(--glitch-red);
+    mix-blend-mode: lighten;
+    opacity: 0;
+    animation: 
+      glitch 0.5s infinite,
+      appear 1s forwards;
+  }
+  
+  @keyframes glitch {
+    0% { transform: translate(-52%, -50%); }
+    50% { transform: translate(-48%, -50%); }
+    100% { transform: translate(-50%, -50%); }
+  }
+  
+  @keyframes appear {
+    0% { transform: translate(-50%, -50%) scale(5); opacity: 0; }
+    80% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); }
+  }

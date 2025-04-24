@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Таємна кімната</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="language-switcher">
+    <button class="lang-btn" data-lang="uk">UA</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ru">RU</button>
+  </div>
+
+  <div class="center" id="welcome">
+    <h1 id="flickeryText"></h1>
+    <div class="button-box" id="formButton"></div>
+  </div>
+
+  <div class="transition-overlay" id="transitionOverlay">
+    <div class="code-effect" id="codeEffect"></div>
+    <div class="press-start" id="pressStart">Game Changing</div>
+  </div>
+
+  <section class="form-section" id="formSection">
+    <div class="form-container">
+      <h1 id="formTitle"></h1>
+      <p class="subtitle" id="formSubtitle"></p>
+      
+      <form id="applicationForm">
+        <div class="form-group">
+          <label data-translate="nameLabel"></label>
+          <input type="text" name="name" data-translate="name" required>
+        </div>
+
+        <div class="form-group">
+          <label data-translate="telegramLabel"></label>
+          <input type="text" name="telegram" data-translate="telegram" required pattern="@?\w{5,}">
+        </div>
+
+        <div class="form-group">
+          <label data-translate="skillsLabel"></label>
+          <textarea name="skills" data-translate="skills" required rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label data-translate="aboutLabel"></label>
+          <textarea name="about" data-translate="about" required rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label data-translate="yearLabel"></label>
+          <input type="number" 
+                 name="year"
+                 data-translate="year"
+                 min="1900" 
+                 max="2024"
+                 pattern="\d{4}"
+                 required>
+        </div>
+
+        <button type="submit" class="submit-btn" data-translate="submitBtn"></button>
+      </form>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
